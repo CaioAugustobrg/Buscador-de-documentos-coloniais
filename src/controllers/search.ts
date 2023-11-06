@@ -12,38 +12,38 @@ interface TypedRequest<T> extends Request {
   body: T
 }
 const search = async (request: TypedRequest<{
-  author?: string
-  places?: string
-  topic?: string
-  themes?: string
-  captaincy?: string
-  title?: string
-  names?: string
-  yearI?: number
-  yearF?: number
+  autores?: string
+  lugares?: string
+  // topic?: string
+  temas?: string
+  capitania?: string
+  titulo?: string
+  nomes?: string
+  // yearI?: number
+  // yearF?: number
   // timePeriod?: {
   //   from?: number
   //   until?: number
   // }
-  pubYear?: number
-  source?: string
-  ref?: string
+  // pubYear?: number
+  // source?: string
+  // ref?: string
 }>, response: Response) => {
-  const author = request.body.author
-  const places = request.body.places
-  const topic = request.body.topic
-  const themes = request.body.themes
-  const captaincy = request.body.captaincy
-  const title = request.body.title
-  const names = request.body.names
-  const yearI = request.body.yearI
-  const yearF = request.body.yearF
+  const autores = request.body.autores
+  const lugares = request.body.lugares
+  // const topic = request.body.topic
+  const temas = request.body.temas
+  const capitania = request.body.capitania
+  const titulo = request.body.titulo
+  const nomes = request.body.nomes
+  // const yearI = request.body.yearI
+  // const yearF = request.body.yearF
   // const timePeriod = request.body.timePeriod
-  const pubYear = request.body.pubYear
-  const source = request.body.source
-  const ref = request.body.ref
+  // const pubYear = request.body.pubYear
+  // const source = request.body.source
+  // const ref = request.body.ref
 
-  // async function getDataAboutBook(author: string, places: string) {
+  // async function getDataAboutBook(autores: string, lugares: string) {
   // const buffer = await promises.readFile('../database/dados')
   // const database = buffer.toString()
   // try {
@@ -57,43 +57,44 @@ const search = async (request: TypedRequest<{
   //   }
   // }
   // console.logbuffer)
-  // const contentsArray = buffer.find((item: any) => item.author === author)
-  // console.log(getAuthor)
+  // const contentsArray = buffer.find((item: any) => item.autores === autores)
+  // console.log(autores)
   // }
   async function logFile () {
     try {
       const filePath = resolve('../../sentinela/server/src/database/dados.json')
       const contents = await readFile(filePath, { encoding: 'utf8' })
       const contentsArray = JSON.parse(contents)
-      // const authorToSearch = autores // The name you want to search for
+      // const autoresToSearch = autores // The name you want to search for
 
-      // const getAuthor = contentsArray.filter((item: any) => {
-      //   const authorNames = item.autores.split('; ')
-      //   console.log(authorNames)
-      //   // Check if any of the author names contain the search name (case-insensitive)
-      //   return authorNames.some((authorName: any) =>
-      //     authorName.toLowerCase().includes(autoresToSearch.toLowerCase())
+      // const autores = contentsArray.filter((item: any) => {
+      //   const nomes = item.autores.split('; ')
+      //   console.log(nomes)
+      //   // Check if any of the autores nomes contain the search name (case-insensitive)
+      //   return nomes.some((autoresName: any) =>
+      //     autoresName.toLowerCase().includes(autoresToSearch.toLowerCase())
       //   )
       // })
-      // response.json(getAuthor)
+      // response.json(autores)
       const filteredJson = contentsArray.filter((item: any) => {
         return (
-          item.topic === topic &&
-          item.places === places &&
-          item.author === author &&
-          item.themes === themes &&
-          item.captaincy === captaincy &&
-          item.title === title &&
-          item.names === names &&
-          item.yearI === yearI &&
-          item.yearF === yearF &&
-          item.pubYear === pubYear &&
-          item.source === source &&
-          item.ref === ref
+          // item.topic === topic &&
+          (!lugares ? true : item.lugares?.toLowerCase().includes(lugares.toLowerCase())) &&
+          (!autores ? true : item.autores?.toLowerCase().includes(autores.toLowerCase())) &&
+          (!temas ? true : item.temas?.toLowerCase().includes(temas.toLowerCase())) &&
+          (!capitania ? true : item.capitania?.toLowerCase().includes(capitania.toLowerCase())) &&
+          (!titulo ? true : item.titulo?.toLowerCase().includes(titulo.toLowerCase())) &&
+          (!nomes ? true : item.nomes?.toLowerCase().includes(nomes.toLowerCase()))
+        // (!yearI ? true : item.yearI === yearI) &&
+        // (!yearF ? true : item.yearF === yearF) &&
+        // (!pubYear ? true : item.pubYear === pubYear) &&
+        // (!source ? true : item.source?.toLowerCase().includes(source.toLowerCase())) &&
+          // (!ref ? true : item.ref?.toLowerCase().includes(ref.toLowerCase()))
         )
       })
 
       console.log(filteredJson)
+      response.status(200).json({ filteredJson })
       return contents
     } catch (error) {
       console.error(error)
