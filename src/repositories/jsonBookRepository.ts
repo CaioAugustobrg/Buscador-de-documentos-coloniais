@@ -14,13 +14,13 @@ export class JsonBookRepository implements BookRepository {
     const contentsArray = JSON.parse(contents)
     const filteredJson = contentsArray.filter((item: any) => {
       return (
-        (!props?.lugares || (item?.lugares && item.lugares.includes(props.lugares))) &&
-        (!props?.autores || (item?.autores && item.autores.includes(props.autores))) &&
-        (!props?.temas || (item?.temas && item.temas.includes(props.temas))) &&
-        (!props?.capitania || (item?.capitania && item.capitania.includes(props.capitania))) &&
-        (!props?.titulo || (item?.titulo && item.titulo.includes(props.titulo))) &&
-        (!props?.nomes || (item?.nomes && item.nomes.includes(props.nomes)))
-        // Add conditions for other properties as needed
+
+        (!props?.lugares || (item && item.lugares && item.lugares.toLowerCase().includes(props.lugares))) &&
+    (!props?.autores || (item && item.autores && item.autores.toLowerCase().includes(props.autores.toLowerCase()))) &&
+    (!props?.temas || (item && item.temas && item.temas.toLowerCase().includes(props.temas.toLowerCase()))) &&
+    (!props?.capitania || (item && item.capitania && item.capitania.toLowerCase().includes(props.capitania.toLowerCase()))) &&
+    (!props?.titulo || (item && item.titulo && item.titulo.toLowerCase().includes(props.titulo.toLowerCase()))) &&
+    (!props?.nomes || (item && item.nomes && item.nomes.toLowerCase().includes(props.nomes.toLowerCase())))
       )
     })
     if (filteredJson) {
