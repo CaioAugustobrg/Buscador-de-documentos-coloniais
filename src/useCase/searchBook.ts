@@ -13,7 +13,7 @@ export class SearchBookUseCase {
     private readonly JsonBookRepository: JsonBookRepository
   ) { }
 
-  async handle (httpRequest: BookDTO): Promise<any> {
+  async handle (httpRequest: BookDTO): Promise<Book | null> {
     console.log('usecase', httpRequest)
     // let gotBodyProperty
     // for (const bodyPropeties in HttpRequest.body) {
