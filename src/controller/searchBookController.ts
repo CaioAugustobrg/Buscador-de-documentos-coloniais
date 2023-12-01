@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 // import { type HttpRequest } from '../ports/http'
+import { type HttpRequest } from '../ports/http'
 import { type SearchBookUseCase } from '../useCase/searchBook'
 // import { type BookProps } from '../entities/book'
 import { type Request, type Response } from 'express'
@@ -13,7 +15,16 @@ export class SearchBookController {
   ) {}
 
   async handle (request: Request, response: Response): Promise<Response> {
-    const searchThoseBooks = await this.searchBookUseCase.handle(request.body)
-    return response.status(200).json(searchThoseBooks)
+    try {
+      const httpRequest: HttpRequest = {
+        body: request.body
+      }
+      console.log(httpRequest.body)
+      const searchThoseBooks = await this.searchBookUseCase.handle(httpRequest.body)
+
+      return response.status(200).json({ searchThoseBooks })
+    } catch (error: any) {
+      return response.status(error.code || 500).json({ error: error.message || 'Erro interno do servidor' })
+    }
   }
 }
