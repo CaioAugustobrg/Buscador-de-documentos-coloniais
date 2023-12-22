@@ -6,8 +6,6 @@ import { type BookRepository } from './bookRepository'
 import { Book } from '../entities/book'
 import { type BookDTO } from '../DTO/findBookDTO'
 import axios from 'axios'
-import { readFile } from 'fs/promises'
-import { resolve } from 'path'
 // import { resolve } from 'path'
 
 export class JsonBookRepository implements BookRepository {

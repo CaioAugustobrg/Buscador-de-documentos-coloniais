@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "build": "tsc",
     "test:watch": "jest --watch",
     "start": "node src/server.ts",
     "dev:server": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts"
