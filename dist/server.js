@@ -15,9 +15,14 @@ var port = (_a = process.env.PORT) !== null && _a !== void 0 ? _a : 3030;
 var host = (_b = process.env.HOST) !== null && _b !== void 0 ? _b : '127.0.0.1';
 app.use((0, cors_1.default)({
     credentials: true,
-    origin: 'https://oxossi.vercel.app',
-    allowedHeaders: ['Content-Type', 'Authorization']
+    origin: 'http://127.0.0.1:5173'
 }));
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:5173');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,PATCH,POST,DELETE,OPTIONS');
+    next();
+});
 app.get('/', function (request, response) {
     response.type('text/plain');
     response.send('Server is running');
