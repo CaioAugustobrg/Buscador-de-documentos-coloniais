@@ -8,7 +8,7 @@ app.use(bodyParser.json())
 const port = process.env.PORT ?? 3030
 const host = process.env.HOST ?? '127.0.0.1'
 app.use(cors({
-  origin: 'https://oxossi.vercel.app',
+  origin: 'http://127.0.0.1:5173/',
   credentials: true
 }));
 app.get('/', (request, response) => {
