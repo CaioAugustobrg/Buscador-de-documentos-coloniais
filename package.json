@@ -9,6 +9,8 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
+    "copy-db": "cp src/database/dados.json dist/database/",
+    "heroku-postbuild": "cp src/database/dados.json dist/database/",
     "test:watch": "jest --watch",
     "start": "node dist/server.js",
     "dev:server": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts"
