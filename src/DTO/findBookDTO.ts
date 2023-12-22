@@ -4,7 +4,10 @@ export interface BookDTO {
   anoPub?: string
   autores?: string
   capitania?: string
-  datas?: string
+  datas?: {
+    anoInicial: number
+    anoFinal: number
+  }
   fonte?: string
   id_X?: string
   link?: string

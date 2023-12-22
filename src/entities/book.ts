@@ -27,7 +27,11 @@ export class Book {
   public anoPub?: string
   public autores?: string
   public capitania?: string
-  public datas?: string
+  public datas?: {
+    anoInicial: number
+    anoFinal: number
+  }
+
   public fonte?: string
   public id_X?: string
   public link?: string

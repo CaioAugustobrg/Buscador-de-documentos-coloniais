@@ -19,7 +19,6 @@ export class SearchBookController {
       const httpRequest: HttpRequest = {
         body: request.body
       }
-      console.log(httpRequest.body)
       const searchThoseBooks = await this.searchBookUseCase.handle(httpRequest.body)
 
       return response.status(200).json({ searchThoseBooks })

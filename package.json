@@ -2,6 +2,9 @@
   "name": "sentinela",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "16.x"
+  },  
   "main": "index.js",
   "scripts": {
     "test": "jest",
@@ -13,7 +16,7 @@
     "collectCoverage": true
   },
   "keywords": [],
-  "author": "",
+  "author": "Caio Augusto",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
