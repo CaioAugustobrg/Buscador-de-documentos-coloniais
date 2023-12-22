@@ -7,10 +7,12 @@ import { type BookDTO } from '../DTO/findBookDTO'
 
 import { readFile } from 'fs/promises'
 import { resolve } from 'path'
+// import { resolve } from 'path'
 
 export class JsonBookRepository implements BookRepository {
   async findBook (props?: BookDTO): Promise<Book | null> {
-    const filePath = resolve('../database/dados.json')
+    const filePath = resolve(__dirname, '../database/dados.json')
+    console.log('Caminho absoluto:', filePath)
     const contents = await readFile(filePath, { encoding: 'utf8' })
     const contentsArray = JSON.parse(contents)
     console.log(props?.datas)

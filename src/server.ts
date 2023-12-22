@@ -10,10 +10,24 @@ const host = process.env.HOST ?? '127.0.0.1'
 app.use(
   cors({
     credentials: true,
-    origin: 'https://oxossi.vercel.app',
-    allowedHeaders: ['Content-Type', 'Authorization']
+    origin: 'http://127.0.0.1:5173'
   })
 )
+app.use((req, res, next) => {
+  res.header(
+    'Access-Control-Allow-Origin',
+    'http://127.0.0.1:5173'
+  )
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  )
+  res.header(
+    'Access-Control-Allow-Methods',
+    'GET,PUT,PATCH,POST,DELETE,OPTIONS'
+  )
+  next()
+})
 app.get('/', (request, response) => {
   response.type('text/plain')
   response.send('Server is running')
