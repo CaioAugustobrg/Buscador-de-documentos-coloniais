@@ -8,9 +8,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "build": "tsc && npm run create-database-dir && npm run copy-db",
-  "create-database-dir": "if [ ! -d dist/database ]; then mkdir -p dist/database; fi",
-  "copy-db": "cp src/database/*.json dist/database/",
+ 
     "test:watch": "jest --watch",
     "start": "node dist/server.js",
     "dev:server": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts"
