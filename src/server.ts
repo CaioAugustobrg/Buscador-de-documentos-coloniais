@@ -10,7 +10,8 @@ const host = process.env.HOST ?? '127.0.0.1'
 app.use(
   cors({
     credentials: true,
-    origin: 'https://oxossi.vercel.app'
+    origin: 'https://oxossi.vercel.app',
+    allowedHeaders: ['Content-Type', 'Authorization']
   })
 )
 app.get('/', (request, response) => {
