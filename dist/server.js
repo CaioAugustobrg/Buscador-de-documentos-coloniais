@@ -15,8 +15,7 @@ var port = (_a = process.env.PORT) !== null && _a !== void 0 ? _a : 3030;
 var host = (_b = process.env.HOST) !== null && _b !== void 0 ? _b : '127.0.0.1';
 app.use((0, cors_1.default)({
     credentials: true,
-    origin: 'https://oxossi.vercel.app/',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE'
+    origin: 'https://oxossi.vercel.app'
 }));
 app.get('/', function (request, response) {
     response.type('text/plain');
