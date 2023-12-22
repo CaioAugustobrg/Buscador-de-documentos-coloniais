@@ -10,7 +10,7 @@ const host = process.env.HOST ?? '127.0.0.1'
 app.use(
   cors({
     credentials: true,
-    origin: 'http://localhost',
+    origin: '127.0.0.1',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE'
   })
 )
