@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.searchBookController = exports.searchBookUseCase = void 0;
+var searchBookController_1 = require("../controller/searchBookController");
+var searchBook_1 = require("../useCase/searchBook");
+var jsonBookRepository_1 = require("../repositories/jsonBookRepository");
+var jsonBookRepository = new jsonBookRepository_1.JsonBookRepository();
+var searchBookUseCase = new searchBook_1.SearchBookUseCase(jsonBookRepository);
+exports.searchBookUseCase = searchBookUseCase;
+var searchBookController = new searchBookController_1.SearchBookController(searchBookUseCase);
+exports.searchBookController = searchBookController;
