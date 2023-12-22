@@ -18,7 +18,7 @@ app.use((0, cors_1.default)({
     origin: 'http://127.0.0.1:5173'
 }));
 app.use(function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:5173');
+    res.header('Access-Control-Allow-Origin', 'https://oxossi.vercel.app/');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,PATCH,POST,DELETE,OPTIONS');
     next();
