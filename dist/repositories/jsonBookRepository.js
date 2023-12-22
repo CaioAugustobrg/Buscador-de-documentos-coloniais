@@ -51,7 +51,7 @@ var JsonBookRepository = /** @class */ (function () {
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        filePath = (0, path_1.resolve)(__dirname, '../../../database/dados.json');
+                        filePath = (0, path_1.resolve)(__dirname, '*/database/dados.json');
                         console.log('Caminho absoluto:', filePath);
                         return [4 /*yield*/, (0, promises_1.readFile)(filePath, { encoding: 'utf8' })];
                     case 1:
