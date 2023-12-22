@@ -29,9 +29,8 @@ var ApiError = /** @class */ (function (_super) {
        * @param error.logStack If the error stack should also be logged with the error message.
        */
     function ApiError(error) {
-        var _this = this;
         var _a;
-        _this = _super.call(this, (Boolean(error.error)) || error.message) || this;
+        var _this = _super.call(this, (Boolean(error.error)) || error.message) || this;
         _this.code = ((_a = error.code) !== null && _a !== void 0 ? _a : 0) || 500;
         _this.message = error.error || error.message || undefined;
         console.log(error);
