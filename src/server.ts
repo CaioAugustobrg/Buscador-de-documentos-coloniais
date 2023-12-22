@@ -9,7 +9,6 @@ const port = process.env.PORT ?? 3030
 const host = process.env.HOST ?? '127.0.0.1'
 app.use(
   cors({
-    credentials: true,
     // origin: '*',
     origin: 'https://oxossi.vercel.app/',
     allowedHeaders: ['Content-Type', 'Authorization'],
