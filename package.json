@@ -1,6 +1,7 @@
 {
   "name": "sentinela",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "engines": {
     "node": "16.x"
