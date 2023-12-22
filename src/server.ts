@@ -11,10 +11,25 @@ app.use(
   cors({
     // origin: '*',
     origin: 'https://oxossi.vercel.app/',
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    methods: ['OPTIONS', 'GET', 'POST']
+    allowedHeaders: ['Content-Type', 'Authorization']
   })
 )
+app.use((req, res, next) => {
+  res.header(
+    'Access-Control-Allow-Origin',
+    'https://oxossi.vercel.app/'
+  )
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  )
+  res.header(
+    'Access-Control-Allow-Methods',
+    'GET,PUT,PATCH,POST,DELETE,OPTIONS'
+  )
+  next()
+})
+
 app.get('/', (request, response) => {
   response.type('text/plain')
   response.send('Server is running')
