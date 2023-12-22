@@ -23,7 +23,7 @@ export class SearchBookController {
 
       return response.status(200).json({ searchThoseBooks })
     } catch (error: any) {
-      return response.status(error.code || 500).json({ error: error.message || 'Erro interno do servidor' })
+      return response.status(500).json({ error: error.message || 'Erro interno do servidor' })
     }
   }
 }
