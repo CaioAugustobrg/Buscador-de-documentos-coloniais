@@ -4,7 +4,6 @@
     "module": "commonjs",
     "lib": ["es6"],
     "outDir": "./dist",
-    "rootDir": "src",
     "strict": true,
     "strictPropertyInitialization": false,
     "esModuleInterop": true,
@@ -12,6 +11,7 @@
     "emitDecoratorMetadata": true
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "src/database/**/*.ts"
   ]
 }
