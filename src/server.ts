@@ -12,7 +12,8 @@ app.use(
     credentials: true,
     // origin: '*',
     origin: 'https://oxossi.vercel.app/',
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    methods: ['OPTIONS', 'GET', 'POST']
   })
 )
 app.get('/', (request, response) => {
