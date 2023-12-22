@@ -9,7 +9,7 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest -- watch",
-    "start": "nodemon src/server.ts",
+    "start": "node src/server.ts",
     "dev:server": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts"
   },
   "jest": {
