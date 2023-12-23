@@ -13,7 +13,8 @@ const host = process.env.HOST ?? '127.0.0.1'
 app.use(
   cors({
     origin: 'https://oxossi.vercel.app',
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
   })
 )
 
