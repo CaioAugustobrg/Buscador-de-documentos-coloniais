@@ -17,7 +17,7 @@ app.use(
   })
 )
 
-app.get('/', (request, response) => {
+app.get('/status', (request, response) => {
   response.type('text/plain')
   response.send('Server is running')
 })

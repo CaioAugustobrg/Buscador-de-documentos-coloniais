@@ -4,7 +4,7 @@ import express from 'express'
 import { searchBookController } from '../factory/searchBook'
 // import search from '../controllers/search'
 const router = express.Router()
-router.post('/search', async (request, response) => {
+router.post('/', async (request, response) => {
   return await searchBookController.handle(request, response)
 })
 export default router
