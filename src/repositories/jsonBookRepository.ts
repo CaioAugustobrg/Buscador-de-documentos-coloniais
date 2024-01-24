@@ -13,13 +13,6 @@ export class JsonBookRepository implements BookRepository {
     const url = 'https://caioaugustobrg.github.io/database/dados.json'
     const response = await axios.get(url)
     const contentsArray = response.data
-    console.log('axios', contentsArray) // Aqui estão os dados do seu arquivo JSON
-    // Faça o que precisar com os dados aqui
-    // const filePath = resolve(__dirname, '/database/dados.json')
-    // console.log('Caminho absoluto:', filePath)
-    // const contents = await readFile(filePath, { encoding: 'utf8' })
-    // const contentsArray = JSON.parse(data)
-    console.log(props?.datas)
     const yearsArray: any = []
     if (props?.datas) {
       const { anoFinal } = props.datas
@@ -27,17 +20,12 @@ export class JsonBookRepository implements BookRepository {
         yearsArray.push(year)
       }
     }
-    console.log(yearsArray)
-    console.log(props?.datas?.anoFinal)
     const filteredJson = contentsArray.filter((item: any) => {
       const datas = item?.datas
       const datasWithoutSpecialChars = datas
         ? datas.replace(/\[|\]|\-|'/g, '')
         : ''
       const datasArray: number[] = datasWithoutSpecialChars.split(',').map(Number)
-
-      console.log('ssss', datasArray)
-      // const yearsArrayWithoutBrackets = yearsArray ? yearsArray.replace(/\[|\]/g, '') : ''
       return (
         (!props?.lugares || (item && item.lugares && item.lugares.toLowerCase().includes(props.lugares.toLocaleLowerCase()))) &&
            (!props?.autores || (item && item.autores && item.autores.toLowerCase().includes(props.autores.toLowerCase()))) &&
@@ -53,7 +41,6 @@ export class JsonBookRepository implements BookRepository {
 
     if (filteredJson.length > 0) {
       const booksFiltered = filteredJson.map((bookData: BookDTO) => new Book(bookData))
-      console.log(booksFiltered)
       return booksFiltered
     } else {
       return null
