@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    
+    "baseUrl": "./",
+    "module": "CommonJS",
+    "paths": {
+      "@/*": ["src/*"],
+    },
     "lib": ["es6"],
     "outDir": "./dist",
     "strict": true,
@@ -14,5 +16,5 @@
   "include": [
     "src/**/*.ts",
     "src/database/**/*.ts"
-  ]
+, "src/server.ts"  ]
 }

@@ -1,5 +1,5 @@
 import express from 'express'
-import router from './src/routes/index'
+import router from './routes/index'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 const app = express()
@@ -16,7 +16,7 @@ app.use(
 app.use((req, res, next) => {
   res.header(
     'Access-Control-Allow-Origin',
-    'http://127.0.0.1:5173'
+    'http://localhost:5173'
   )
   res.header(
     'Access-Control-Allow-Headers',
